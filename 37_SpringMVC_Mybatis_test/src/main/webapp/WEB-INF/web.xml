@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
+  version="3.1">
+  
+  <!--  -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value></param-value>
+  </context-param>
+  
+  <listener>
+  	 <!-- ContextLoaderListener는 WAS에 프로그램이 로딩 될 때 
+  	          스프링에서 사용할 설정 파일을 찾아서 작업 처리 
+  	      /WEB-INF/applicationContext.xml 
+  	 	  <context-param> 설정을 통해 파일명 변경 사용 가능
+  	 -->
+	 <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+	      classpath:applicationContext.xml
+	      /WEB-INF/config/presentation-layer.xml
+	  </param-value>
+    </init-param>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+    
+  <!-- 필터정의 : 모든 *.do 요청에 characterEncoding을 UTF-8 설정 -->
+  <filter>
+    <filter-name>characterEncoding</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>characterEncoding</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+</web-app>
