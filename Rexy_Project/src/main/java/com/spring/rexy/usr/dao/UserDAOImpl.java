@@ -10,9 +10,10 @@ import com.spring.rexy.usr.vo.UserVO;
 public class UserDAOImpl implements UserDAO{
 	@Autowired
 	SqlSessionTemplate mybatis;
+	
 	@Override
-	public UserVO getUser(UserVO vo) {
+	public int getUser(UserVO vo) {
 		int isCheck = mybatis.selectOne("getUser", vo);
-		return null;
+		return isCheck;
 	}
 }

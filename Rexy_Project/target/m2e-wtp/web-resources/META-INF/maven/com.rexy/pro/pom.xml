@@ -46,6 +46,14 @@
 		    <version>2.5.0</version>
 		</dependency>
 		
+		<!-- 스프링-마이바티스 연동 라이브러리 설정(부터) -->
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.4.1</version>
+		</dependency>
+		
 		<!-- 마이바티스 라이브러리 등록 -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
 		<dependency>
