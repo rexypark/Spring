@@ -5,8 +5,8 @@ public class UserVO {
 	
 	
 	public UserVO() {
-		// TODO Auto-generated constructor stub
 	}
+	
 
 	public String getId() {
 		return id;

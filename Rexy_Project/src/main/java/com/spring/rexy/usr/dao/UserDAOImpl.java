@@ -6,10 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.rexy.usr.vo.UserVO;
 
-@Repository
+@Repository("userDAO")
 public class UserDAOImpl implements UserDAO{
 	@Autowired
-	SqlSessionTemplate mybatis;
+	private SqlSessionTemplate mybatis;
 	
 	@Override
 	public int getUser(UserVO vo) {

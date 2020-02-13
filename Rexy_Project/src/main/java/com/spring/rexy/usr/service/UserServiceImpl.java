@@ -6,13 +6,14 @@ import org.springframework.stereotype.Service;
 import com.spring.rexy.usr.dao.UserDAOImpl;
 import com.spring.rexy.usr.vo.UserVO;
 
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService{
 	@Autowired
-	UserDAOImpl userDAO;
+	private UserDAOImpl userDAOImp;
 	
 	@Override
-	public UserVO getUser(UserVO vo) {
-		return null;
+	public int getUser(UserVO vo) {
+		int isCheck = userDAOImp.getUser(vo);
+		return isCheck;
 	}
 }

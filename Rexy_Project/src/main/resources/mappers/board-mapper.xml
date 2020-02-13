@@ -5,7 +5,7 @@
   
   
 <mapper namespace="BoardDAO">
-	<!-- ====================select=================== -->
+	<!-- ====================select===================
 	<select id="getBoardList" parameterType="boardVO" resultType="boardVO">
 		SELECT * FROM BOARD
 		 WHERE 1=1
@@ -22,17 +22,13 @@
 	
 	<select id="getBoard" parameterType="boardVO" resultType="boardVO">
 		SELECT * FROM BOARD WHERE SEQ = #{seq}
-	</select>
+	</select> -->
 	<!-- ====================select   END=================== -->
 	
 	
 	
 	<!-- ====================insert=================== -->
-	<insert id="insertBoard" parameterType="boardVO">
-		INSERT INTO BOARD (SEQ, TITLE, WRITER, CONTENT) 
-		  VALUES ((SELECT NVL(MAX(SEQ), 0) + 1 FROM BOARD), 
-		  #{title}, #{writer}, #{content})
-	</insert>
+
 	<!-- ====================insert   END=================== -->
 	
 	
@@ -40,17 +36,12 @@
 		
 	
 	<!-- ====================update=================== -->
-	<update id="updateBoard" parameterType="boardVO">
-		UPDATE BOARD SET TITLE = #{title}, CONTENT = #{content} WHERE SEQ = #{seq}
-	</update>
-	
+
 	<!-- ====================update   END=================== -->
 	
 	
 	<!-- ====================delete=================== -->
-	<delete id="deleteBoard" parameterType="boardVO">
-		DELETE FROM BOARD WHERE SEQ = #{seq}
-	</delete>
+
 	<!-- ====================delete   END=================== -->
 </mapper>
 

@@ -9,7 +9,6 @@
 	<configs>
 		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/action-mybatis.xml</config>
-		<config>src/main/resources/mybatis/mybatis-config.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

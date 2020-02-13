@@ -187,7 +187,6 @@ function selectSite() {
     <div class="rightbuttons">
 	  <a href="javascript:doAction('reload')"  class="IBbutton">초기화</a>
 	  <a href="javascript:doAction('search')"  class="IBbutton">조회</a>
-
 	</div>
 
 

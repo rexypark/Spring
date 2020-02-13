@@ -6,10 +6,10 @@
   
 <mapper namespace="UserDAO">
 	<!-- ====================select=================== -->
-	<select id="getUser" parameterType="UserVO" resultType="int">
+	<select id="getUser" parameterType="com.spring.rexy.usr.vo.UserVO" resultType="int">
 		SELECT count(*)
 			FROM REXY_USER
-		   WHERE ID = #{id} AND PWD = {pwd};
+		   WHERE ID = #{id} AND PWD = #{pwd}
 	</select>
 	
 	<!-- ====================select   END=================== -->
