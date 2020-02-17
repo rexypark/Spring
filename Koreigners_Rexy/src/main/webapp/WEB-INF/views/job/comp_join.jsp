@@ -102,9 +102,9 @@
 <body>
 	<!-- private int COMPANY_IDX, EMPLOYEE_NUM; 
 	private int company_idx, employee_num; 
-	private String mem_id, ceo_name, company_name, company_cate, hr_manager, 
-	               do_en, gu_gun_eup_eng, address, business_num, business_img, 
-	               business_info, domitory, meals, company_telephone, ip, manager_email;  
+	private String , , , company_cate, , 
+	               , , address, , business_img, 
+	               , domitory, meals, , ip, manager_email;  
 	private Date regdate;
 	 -->
 	<form action="#" method="post">
@@ -137,6 +137,19 @@
 		
 		<select name="gu_gun_eup_kor" id="gu_gun_eup_kor">
 		</select><br>
+		
+		
+		<label>지역 : </label><input type="text" name="business_num"><br>
+		
+		<label>인사담당자 : </label><input type="text" name="hr_manager"><br>
+		
+		<label>대표전화 : </label><input type="text" name="company_telephone"><br>
+		
+		<label>사업내용 : </label><input type="text" name="business_info"><br>
+		
+		<label>기숙사제공유무 : </label><input type="text" name="business_info"><br>
+		
+		
 		
 		<input type="submit" value="회원가입">
 	</form>
