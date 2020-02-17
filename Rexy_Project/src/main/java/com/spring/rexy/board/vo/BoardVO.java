@@ -6,14 +6,43 @@ public class BoardVO {
 	private String  title, writer, content;
 	private int board_seq, cnt;
 	private Date regdate;
+	               //검색 필터 조건         //검색 키워드 
+	private String searchCondition, searchKeyword;
+	
+	
 	
 	public BoardVO() {
 	
 	}
 	
+	
+	//검색 필터링 변수
+	
+	
+	
 	public String getTitle() {
 		return title;
 	}
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+
+
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+
+
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+
+
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+
+
 	public void setTitle(String title) {
 		this.title = title;
 	}

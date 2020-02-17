@@ -1,5 +1,10 @@
 package com.spring.rexy.board.service;
 
-public interface BoardService {
+import java.util.List;
 
+
+import com.spring.rexy.board.vo.BoardVO;
+
+public interface BoardService {
+	List<BoardVO> getList(BoardVO vo);
 }

@@ -34,7 +34,7 @@
 	<h3>테스트님 환영합니다...<a href="logout.do">Log-out</a></h3>
 	
 	<!-- 검색을 위한 폼 -->
-	<form action="getBoardList.do" method="post">
+	<form action="${pageContext.request.contextPath}/getList.do" method="post">
 	<table class="border-none">
 		<tr>
 			<td>
@@ -61,11 +61,11 @@
 			<th width="100">조회수</th>
 		</tr>
 		
-		<c:forEach var="board" items="${boardList}">
+		<c:forEach var="board" items="${list}">
 		<tr>
-			<td class="center">${board.seq }</td>
+			<td class="center">${board.board_seq }</td>
 			<td>
-				<a href="getBoard.do?seq=${board.seq }">
+				<a href="getBoard.do?seq=${board.board_seq }">
 					${board.title }
 				</a>
 			</td>

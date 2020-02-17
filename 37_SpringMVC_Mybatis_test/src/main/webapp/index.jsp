@@ -44,8 +44,6 @@
 					  "jqXHR.readyState : " + jqXHR.readyState + "\n" +
 					  "textStatus : " + textStatus + "\n" +
 					  "errorThrown : " + errorThrown);
-					  
-				
 			}
 		});		
 	}

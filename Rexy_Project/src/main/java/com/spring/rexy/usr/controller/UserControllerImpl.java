@@ -28,7 +28,7 @@ public class UserControllerImpl implements UserController {
 			mav = new ModelAndView("/views/login.jsp");
 		} else {
 			System.out.println("로그인을 성공하였습니다.");
-			mav = new ModelAndView("/views/login.jsp");
+			mav = new ModelAndView("/getList.do");
 		}
 		return mav;
 	}

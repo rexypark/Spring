@@ -39,7 +39,7 @@
 	</servlet-mapping>
 
 
-	<!-- 필터정의 : 모든 *.do 요청에 characterEncoding을 UTF-8 설정 -->
+	<!-- 필터정의 : 모든 /* 요청에 characterEncoding을 UTF-8 설정 -->
 	<filter>
 		<filter-name>characterEncoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

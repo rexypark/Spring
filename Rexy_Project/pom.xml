@@ -23,6 +23,15 @@
 	</repositories>	
 	
 	<dependencies>
+	
+	
+		<!-- JSON 데이터 처리 관련 설정(jackson-databind) -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.7.2</version>
+		</dependency>
+		
 		<!-- ojdbc 오라클 연결 -->
 		<!-- 오라클 JDBC 라이브러리 등록 -->
 		<dependency>
