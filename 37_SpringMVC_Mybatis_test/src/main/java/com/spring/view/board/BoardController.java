@@ -35,8 +35,6 @@ public class BoardController {
 	
 	
 	
-	
-	
 	//메소드에 선언된 @ModelAttribute는 리턴된 데이터를 View에 전달
 	//@ModelAttribute 선언된 메소드는 @RequestMapping 메소드보다 먼저 실행 됨
 	//뷰에 전달될때 설정 된 명칭(예:conditionMap)
@@ -108,7 +106,9 @@ public class BoardController {
 				e.printStackTrace();
 			}
 		}
+		
 		boardService.insertBoard(vo);
+		
 		return "getBoardList.do";
 	}
 	
