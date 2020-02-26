@@ -1,0 +1,40 @@
+0. pom.xml AOP 관련 라이브러리 설정 추가
+
+		<!-- === AOP 사용을 위한 라이브러리 등록 ===-->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.8.11</version>
+		</dependency>
+		<!-- ====================== -->
+		
+1. Spring Bean 설정 파일에 AOP 관련 설정 추가
+		
+	<!-- ======= AOP 설정(xmlns:aop 추가) ============= -->
+	<!-- *Impl 클래스의 모든 메소드 실행전에 LogAdvice.printLog() 실행 -->
+<!--  	
+	<bean id="log" class="com.spring.biz.common.LogAdvice" />
+	<aop:config>
+		<aop:pointcut id="allPointcut" 
+			expression="execution(* com.spring.biz..*Impl.*(..))" />
+		<aop:aspect ref="log">
+			<aop:before method="printLog" pointcut-ref="allPointcut"/>
+		</aop:aspect>
+	</aop:config>
+-->	
+	
+	<!-- Log4jAdvice 클래스 사용해서 로그 남기기 -->
+	<bean id="log4j" class="com.spring.biz.common.Log4jAdvice" />
+	<aop:config>
+		<!-- pointcut : 핵심관심 중 AOP 적용대상으로 선정할 메소드 설정 -->
+		<aop:pointcut id="allPointcut" 
+			expression="execution(* com.spring.biz..*Impl.*(..))" />
+		<aop:pointcut id="getPointcut" 
+			expression="execution(* com.spring.biz..*Impl.get*(..))" />
+		
+		<!-- aspect : 적용대상(pointcut)과 적용할 횡단관심(advice) 연결 -->
+		<aop:aspect ref="log4j">
+			<!-- 핵심관심 메소드 실행전 Log4jAdvice.printLogging() 연결 -->
+			<aop:before pointcut-ref="getPointcut" method="printLogging"/>
+		</aop:aspect>
+	</aop:config>		
