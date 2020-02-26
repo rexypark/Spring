@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:p="http://www.springframework.org/schema/p"
+	>
+	
+	<!-- bean 태그 속성
+	
+	- id : 요청(호출)시 사용할 명칭(유일한 명칭) [파라미터] 
+	- class : 필수 속성, 대상 클래스(패키지.클래스명)
+	- lazy-init : 생성 시기 설정
+		   (기본은 컨테이너 구동시 객체 생성, lazy-init="true" 설정하면 요청 할 때 생성) 
+    - scope : 객체 생성 형태 정의(default는 싱글톤 : 하나의 객체 생성 사용)
+		    prototype - 요청할 때 마다 새로운 객체 생성    단, prototype scope인 경우 
+		                destroy-method 적용 안됨 
+	- init-method : 객체 생성 후 필드 초기화 필요시 해당 메소드에서 처리
+	- destroy-method : 객체 소멸 시 처리할 작업을 설정하기 위한 메소드 
+
+	<bean id="tv1Samsung" class="polymorphism01.SamsungTV"/>	
+	 -->
+	
+	
+	<!-- 생성자를 이용한 의존성 주입(DI) -->
+	<bean id="sony" class="polymorphism03.SonySpeaker"/>
+
+	<bean id="tv2Samsung" class="polymorphism03.SamsungTV">
+		<constructor-arg ref="sony"/>
+	</bean>
+	
+	<!-- 생성자 전달되는 값 순서 sony, 100, 200 -->
+	<bean id="tv2Samsung2" class="polymorphism03.SamsungTV">
+		<constructor-arg ref="sony"/>
+		<constructor-arg value="100000"/>
+	</bean>
+	
+	<!-- 생성자에 전달하는 인수(파라미터값) 순서를 index 속성으로 변경(0부터)시작 -->
+	<bean class="polymorphism03.SamsungTV" id="tv2Samsung3">
+		<constructor-arg ref="sony" index="0"/>
+		<constructor-arg value="100" index="2"/>
+		<constructor-arg value="200" index="1"/>
+	</bean>
+	<!-- ===== set 메소드(setter)를 이용한 의존성 주입(DI) ===== -->
+	<bean id="sony3" class="polymorphism03.SonySpeaker"></bean>
+	
+	<bean id="tv3Samsung" class="polymorphism03.SamsungTV">
+		<property name="speaker" ref="sony3" ></property>
+		<property name="price" value="1000000" ></property>
+		<property name="width" value="200" ></property>
+		<property name="height" value="110" ></property>
+	</bean>
+	
+	<!-- p: 접두어(prefix) 사용방식(네임스페이스) -->
+	<bean id="tv3Samsung2" class="polymorphism03.SamsungTV"
+		p:speaker-ref="sony3" p:price ="4560000" p:width="220" p:height="110"/>
+</beans>
