@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Spring HandlerMapping 등록 -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/login.do">login</prop>
+				<prop key="/Logout.do">logout</prop>
+				<prop key="/getBoardList.do">boardList</prop>
+				<prop key="/getBoard.do">boardDetail</prop>
+				<prop key="/delete.do">delete</prop>
+				<prop key="/insertBoard.do">insert</prop>
+				<prop key="/updateBoard.do">update</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 요청처리 할 Controller 등록 -->
+	<bean id="login" class="com.spring.view.user.LoginController"></bean>
+	<bean id="logout" class="com.spring.view.user.LogoutController"></bean>
+	<bean id="boardList" class="com.spring.view.board.GetBoardListController"></bean>
+	<bean id="boardDetail" class="com.spring.view.board.GetBoardController"></bean>
+	<bean id="delete" class="com.spring.view.board.DeleteBoardController"></bean>
+	<bean id="insert" class="com.spring.view.board.InsertBoardController"></bean>
+	<bean id="update" class="com.spring.view.board.UpdateBoardController"></bean>
+	
+</beans>
